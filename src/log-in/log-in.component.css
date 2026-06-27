@@ -1,0 +1,119 @@
+/* ================= LOGIN PAGE ONLY ================= */
+
+.login {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.login h1 {
+  color: #0F2A1D;
+}
+
+.login p {
+  color: #8B8B8B;
+}
+
+/* form labels */
+.login .form-label {
+  color: #58795E;
+  font-weight: 500;
+}
+
+/* inputs */
+.login .form-control {
+  background-color: #fff;
+  color: #58795E;
+  border: 1px solid #58795E;
+  height: 50px;
+  border-radius: 6px;
+}
+
+.login .form-control::placeholder {
+  color: #94AA98;
+}
+
+/* password eye icon */
+.login .input-group-text {
+  background: #fff;
+  border: 1px solid #58795E;
+  color: #686677;
+  cursor: pointer;
+}
+.google-icon {
+    font-size: 24px;
+    background: linear-gradient(
+        #EA4335 25%,
+        #FBBC05 20%,
+        #34A853 10%,
+        #4285F4
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* remember me */
+.login .form-check-label {
+  color: #58795E;
+}
+
+/* forgot password */
+.login .forg {
+  color: #58795E;
+  text-decoration: none;
+}
+
+/* login button */
+.login .btn-login {
+  background-color: #0F2A1D;
+  color: #fff;
+  border: none;
+  height: 45px;
+  border-radius: 6px;
+}
+
+.login .btn-login:hover {
+  background-color: #123825;
+  color: #fff;
+}
+
+/* divider */
+.login .border-top {
+  border-color: #dcdcdc !important;
+}
+
+/* google button */
+.login .btn-dark {
+  background-color: #fff;
+  color: #0F2A1D;
+  border: 2px solid #0F2A1D;
+}
+
+.login .btn-dark:hover {
+  background-color: #0F2A1D;
+  color: #fff;
+}
+
+.login .google-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* signup text */
+.login .signup span {
+  color: #6B6B6B;
+}
+
+.login .signup a {
+  color: #0F2A1D;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* right image */
+.login .rounded-img {
+  border-radius: 20px;
+}
+
+/* spacing */
+.login .header-content img {
+  margin-bottom: 15px;
+}

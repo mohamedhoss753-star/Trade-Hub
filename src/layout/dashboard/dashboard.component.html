@@ -1,0 +1,35 @@
+<div class="dashboard-page">
+  
+  <div class="stats-grid">
+    <div class="stat-card" [class.active-card]="selectedMetric() === 'Revenue'" (click)="selectMetric('Revenue')">
+      <div class="stat-label">Revenue</div>
+      <div class="stat-value">$7,825</div>
+    </div>
+    <div class="stat-card" [class.active-card]="selectedMetric() === 'Orders'" (click)="selectMetric('Orders')">
+      <div class="stat-label">Orders</div>
+      <div class="stat-value">920</div>
+    </div>
+    <div class="stat-card" [class.active-card]="selectedMetric() === 'Visitors'" (click)="selectMetric('Visitors')">
+      <div class="stat-label">Visitors</div>
+      <div class="stat-value">15.5K</div>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card main-chart">
+      <h3>Analysis for: <span class="highlight-text">{{ selectedMetric() }}</span></h3>
+      
+      <div class="bars-mock">
+        @for (bar of chartData(); track bar.label) {
+          <div class="bar-wrapper">
+            <div class="bar" [style.height.%]="bar.value">
+              <div class="tooltip">Value: {{ bar.value }}</div>
+            </div>
+            <span class="bar-label">{{ bar.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</div>

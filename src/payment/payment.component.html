@@ -1,0 +1,124 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-around align-items-center gx-5">
+
+            <div class="col-md-6 mt-md-0">
+                <div class="header-content position-relative">
+
+                    <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+                    <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+                    <div class="stepper d-flex justify-content-between align-items-center">
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Business Info</p>
+                        </div>
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Location</p>
+                        </div>
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Payment</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Confirm</p>
+                        </div>
+
+                    </div>
+
+                    <h1 class="fw-bold text-black">Payment Info</h1>
+
+                    <div class="location w-100 g-2">
+
+                        <form class="row g-3">
+
+                            <div class="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+                                <img class="img-fluid" src="assets/images/Group 1.png" alt="Group 1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Merchant ID</label>
+                                <input type="text"
+                                       class="form-control forget"
+                                       placeholder="Enter Merchant ID"
+                                       [(ngModel)]="merchantId"
+                                       name="merchantId">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Integration ID</label>
+                                <input type="text"
+                                       class="form-control forget"
+                                       placeholder="Enter Integration ID"
+                                       [(ngModel)]="integrationId"
+                                       name="integrationId">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">Payment Method</label>
+
+                                <select class="form-select"
+                                        [(ngModel)]="paymentMethod"
+                                        name="paymentMethod">
+
+                                    <option selected disabled value="">
+                                        Choose Payment Method
+                                    </option>
+
+                                    <option value="Cards">Cards</option>
+                                    <option value="Wallet">Wallet</option>
+
+                                </select>
+                            </div>
+
+                            <span class="business text-center">
+                                You must create an account on <b class="user">Paymob</b>
+                                <br>
+                                to get your Merchant & Integration IDs
+                            </span>
+
+                            <div class="d-flex justify-content-center align-items-center gap-5 py-4">
+
+                                <button type="button"
+                                        class="btn btn-outline-dark custom-btn"
+                                        (click)="goBack()">
+                                    Back
+                                </button>
+
+                                <button type="button"
+                                        class="btn custom-btn btn-next"
+                                        (click)="goNext()"
+                                        [disabled]="!merchantId || !integrationId || !paymentMethod">
+                                    Next
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <img class="img-fluid rounded-img"
+                     src="assets/images/Image.png"
+                     alt="Image">
+            </div>
+
+        </div>
+    </div>
+</section>

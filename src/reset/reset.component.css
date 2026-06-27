@@ -1,0 +1,124 @@
+/* Create New Password Page */
+
+.login h1 {
+    color: #0F2A1D;
+    font-weight: 700;
+}
+
+.header-content {
+    position: relative;
+}
+
+/* Step indicator */
+.step-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    text-align: center;
+}
+
+.step-content p {
+    color: #696969;
+    font-size: 12px;
+    margin: 0;
+}
+
+.step-content span {
+    color: #4B7762;
+    font-size: 12px;
+}
+
+/* Form labels */
+.form-label {
+    color: #000;
+    font-weight: 500;
+}
+
+/* Inputs */
+.forget {
+    background-color: #fff;
+    color: #94AA98;
+    border: 1px solid #94AA98;
+    height: 55px;
+    border-radius: 6px;
+}
+
+.forget::placeholder {
+    color: #94AA98;
+}
+
+/* Password list rules */
+.list-pass {
+    margin-top: 10px;
+}
+
+.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list li {
+    color: #4C7863;
+    font-size: 14px;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.custom-list li::before {
+    content: "✔";
+    color: #0F2A1D;
+    position: absolute;
+    left: 0;
+}
+
+/* Buttons */
+.custom-btn {
+    width: 180px;
+    height: 55px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-reset {
+    background-color: #0F2A1D;
+    color: #fff;
+    border: none;
+}
+
+.btn-reset:hover {
+    background-color: #123825;
+    color: #fff;
+}
+
+/* Right image */
+.rounded-img {
+    border-radius: 20px;
+}
+
+/* Icons */
+.input-group-text {
+    color: #686677;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .step-content {
+        position: static;
+        width: 100% !important;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .custom-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .btn-reset {
+        width: 100% !important;
+    }
+}

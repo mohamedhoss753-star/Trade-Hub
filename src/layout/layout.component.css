@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  direction: ltr;
+  background-color: #ffffff;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.layout-navbar {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.layout-sidebar {
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid #f1f5f9;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}

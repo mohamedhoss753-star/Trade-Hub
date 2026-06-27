@@ -1,0 +1,107 @@
+<div class="customers-pure-content">
+  
+  <div class="content-header-row">
+    <div class="title-block">
+      <h2>Customers</h2>
+      <p>Monitor and manage your store registered customers</p>
+    </div>
+    <div class="header-actions">
+      <input type="text" placeholder="Search name, email or ID..." [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" class="search-box" />
+      <button class="add-cust-btn" (click)="openCreate()">
+        <i class="fas fa-plus"></i> Add Customer
+      </button>
+    </div>
+  </div>
+
+  <table class="customers-pure-table">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Customer ID</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Status</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cust of filteredCustomers(); track cust.id) {
+        <tr>
+          <td><span class="cust-name-bold">{{ cust.name }}</span></td>
+          <td>{{ cust.id }}</td>
+          <td>{{ cust.email }}</td>
+          <td>{{ cust.phone }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="cust.status.toLowerCase()">
+              {{ cust.status }}
+            </span>
+          </td>
+          <td class="text-right">
+            <button class="delete-icon-btn" (click)="openDelete(cust)" title="Remove Customer">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6" class="no-data">No customers found matching your search.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  @if (isCreateOpen()) {
+    <div class="pure-modal-overlay">
+      <div class="pure-modal-box">
+        <div class="p-modal-header">
+          <h3>Create Customer</h3>
+          <button class="p-close-x" (click)="isCreateOpen.set(false)">&times;</button>
+        </div>
+        <div class="p-modal-body">
+          <div class="p-form-group">
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="customerForm().name" placeholder="e.g. John Doe" />
+          </div>
+          <div class="p-form-group">
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="customerForm().email" placeholder="name@example.com" />
+          </div>
+          <div class="p-form-group">
+            <label>Phone Number</label>
+            <input type="text" [(ngModel)]="customerForm().phone" placeholder="e.g. +20123456789" />
+          </div>
+          <div class="p-form-group">
+            <label>Account Status</label>
+            <select [(ngModel)]="customerForm().status">
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-modal-footer">
+          <button class="p-btn-cancel" (click)="isCreateOpen.set(false)">Cancel</button>
+          <button class="p-btn-submit" (click)="saveCustomer()" [disabled]="!customerForm().name.trim() || !customerForm().email.trim()">Save Customer</button>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (isDeleteOpen()) {
+    <div class="pure-modal-overlay">
+      <div class="pure-modal-box mini-alert-box">
+        <div class="p-modal-body text-center-alert">
+          <div class="alert-danger-circle">
+            <i class="fas fa-exclamation"></i>
+          </div>
+          <h3>Delete Customer Account?</h3>
+          <p>Are you sure you want to remove <strong>{{ selectedCustomer()?.name }}</strong>? This will clear their historical data profile.</p>
+        </div>
+        <div class="p-modal-footer center-buttons">
+          <button class="p-btn-cancel" (click)="isDeleteOpen.set(false)">Cancel</button>
+          <button class="p-btn-danger" (click)="confirmDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>

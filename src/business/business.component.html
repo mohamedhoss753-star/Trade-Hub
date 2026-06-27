@@ -1,0 +1,132 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+
+    <div class="container">
+
+        <div class="row justify-content-around align-items-center gx-5">
+
+            <div class="col-md-6 mt-md-0">
+
+                <div class="header-content position-relative">
+
+                    <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+                    <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+                    <div class="stepper d-flex justify-content-between align-items-center">
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Business Info</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Location</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Payment</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Confirm</p>
+                        </div>
+
+                    </div>
+
+                    <h1 class="fw-bold text-black">Business Info</h1>
+
+                    <form class="row g-3">
+
+                        <div class="col-md-12">
+                            <label class="form-label">Business Name</label>
+                            <input type="text" class="form-control is-valid" placeholder="your business name"
+                                [(ngModel)]="businessName" name="businessName">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Business Email</label>
+                            <input type="email" class="form-control forget" placeholder="Enter your business email"
+                                [(ngModel)]="businessEmail" name="businessEmail">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Business Type</label>
+
+                            <select class="form-select" [(ngModel)]="businessTypeId" name="businessTypeId">
+
+                                <option selected disabled [value]="0">
+                                    Enter your Business Type
+                                </option>
+
+                                <option [value]="1">Real Estate & Properties</option>
+                                <option [value]="2">Mobiles & Tablets</option>
+                                <option [value]="3">Electronics & Applinces</option>
+                                <option [value]="4">Furniture & Decor</option>
+                                <option [value]="5">Fashion & Beuty</option>
+                                <option [value]="6">Pets</option>
+                                <option [value]="7">Cars</option>
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Taxx Number</label>
+                            <input type="tel" class="form-control forget" placeholder="Enter your business number"
+                                [(ngModel)]="businessNumber" name="businessNumber">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3"
+                                placeholder="Add a short description of the business" [(ngModel)]="description"
+                                name="description"></textarea>
+                        </div>
+
+                        <div class="camera d-flex justify-content-center flex-md-wrap">
+
+                            <label style="cursor:pointer">
+
+                                <input type="file" accept="image/*" hidden (change)="onLogoSelect($event)">
+
+                                <img class="img-fluid"
+                                    [src]="selectedLogo ? selectedLogo : 'assets/images/Frame 283.png'"
+                                    alt="Business logo">
+
+                            </label>
+
+                        </div>
+
+                        <span class="business text-center">Business logo</span>
+
+                        <div class="d-flex justify-content-center align-items-center gap-5 py-4">
+
+                            <button type="button" class="btn btn-outline-dark custom-btn" (click)="goBack()">
+                                Back
+                            </button>
+
+                            <button type="button" class="btn custom-btn btn-next" (click)="goNext()"
+                                [disabled]="!businessName || businessTypeId === 0 || !businessEmail">
+                                Next
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <img class="img-fluid rounded-img" src="assets/images/Image.png" alt="Image">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

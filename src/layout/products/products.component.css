@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.products-container {
+  padding: 32px;
+  background-color: #fafafa;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+.flex-1 { flex: 1; }
+.mb-4 { margin-bottom: 16px; }
+.text-right { text-align: right; }
+.text-xs { font-size: 12px; }
+.text-gray-500 { color: #64748b; }
+.text-gray-950 { color: #0f172a; }
+.font-semibold { font-weight: 600; }
+.flex-justify-between { display: flex; justify-content: space-between; align-items: center; }
+
+/* تصميم الجدول */
+.tradehub-card {
+  background: #ffffff;
+  border: 1px solid #eef0f3;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  padding: 24px 0 0 0;
+  overflow: hidden;
+}
+
+.table-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px 20px 24px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.header-action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-export {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-add-tradehub {
+  background-color: #062F22;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e5e7eb;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 240px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 7px 12px 7px 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.table-responsive-wrapper {
+  overflow-x: auto;
+}
+
+.tradehub-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tradehub-table th {
+  padding: 12px 16px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #fafafa;
+}
+
+.tradehub-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 13px;
+  color: #374151;
+}
+
+.product-cell-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.product-avatar-placeholder {
+  width: 36px;
+  height: 36px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  border-radius: 6px;
+}
+
+.product-meta-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title-name { font-weight: 600; color: #1f2937; }
+.product-sub-category { font-size: 11px; color: #9ca3af; }
+
+.badge-out-of-stock {
+  padding: 2px 8px;
+  background-color: #f1f5f9;
+  color: #6b7280;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.rating-cell-container { display: flex; gap: 4px; align-items: center; }
+.rating-votes { color: #9ca3af; font-size: 12px; }
+
+.table-row-actions button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.table-row-actions button:hover { color: #1f2937; }
+
+.tradehub-pagination-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.pag-num-btn.active {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.pag-arrow-btn, .pag-num-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.total-results-count { font-size: 12px; color: #6b7280; }
+
+/* تصميم الفورم والـ Inputs */
+.form-container-view { max-width: 1000px; margin: 0 auto; }
+.form-action-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.form-main-title { font-size: 22px; font-weight: 700; margin: 4px 0 0 0; }
+.back-link-btn { background: none; border: none; color: #6b7280; cursor: pointer; }
+
+.btn-form-cancel {
+  background: white; border: 1px solid #d1d5db; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-right: 8px;
+}
+.btn-form-save {
+  background-color: #062F22; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer;
+}
+.btn-form-save:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-layout-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 1024px) { .form-layout-grid { grid-template-columns: 2fr 1fr; } }
+
+.form-section-card { background: white; border: 1px solid #eef0f3; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.section-card-title { font-size: 14px; font-weight: 600; margin: 0 0 16px 0; }
+
+.form-field-group { margin-bottom: 16px; }
+.form-field-group label { display: block; font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 500; }
+
+.form-fields-row { display: flex; gap: 16px; }
+
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; box-sizing: border-box;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: #062F22; }
+
+/* الـ Drag & Drop */
+.drag-drop-zone { border: 1px dashed #d1d5db; border-radius: 8px; padding: 32px; text-align: center; background: #fafafa; cursor: pointer; }
+.image-preview-wrapper img { max-height: 140px; object-fit: contain; border-radius: 6px; }
+
+/* مفاتيح الـ Toggle Switch المحدثة */
+.form-toggle-switch-wrapper { display: flex; align-items: center; gap: 10px; }
+.switch-control { position: relative; display: inline-block; width: 36px; height: 20px; }
+.switch-control input { opacity: 0; width: 0; height: 0; }
+.switch-slider { position: absolute; cursor: pointer; inset: 0; background-color: #e5e7eb; transition: .2s; border-radius: 20px; }
+.switch-slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .2s; border-radius: 50%; }
+input:checked + .switch-slider { background-color: #062F22; }
+input:checked + .switch-slider:before { transform: translateX(16px); }
+.switch-label-text { font-size: 13px; color: #374151; }
+
+/* الـ Chips والخيارات الديناميكية */
+.option-row-box { display: flex; gap: 16px; background: #f9fafb; padding: 16px; border-radius: 8px; margin-bottom: 12px; position: relative; }
+.option-type-select { width: 140px; }
+.option-values-chips-input { flex: 1; }
+.btn-remove-row { background: none; border: none; color: #ef4444; font-size: 20px; cursor: pointer; align-self: center; }
+
+.chips-flex-container { display: flex; flex-wrap: wrap; gap: 6px; background: white; border: 1px solid #e5e7eb; padding: 6px; border-radius: 6px; min-height: 38px; align-items: center; box-sizing: border-box; }
+.chip-item { display: inline-flex; align-items: center; background-color: #f3f4f6; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+.chip-item.text-indigo { background-color: #eff6ff; color: #2563eb; }
+.chip-remove-btn { background: none; border: none; margin-left: 4px; cursor: pointer; color: #9ca3af; }
+.chips-flex-container input { border: none !important; outline: none !important; flex: 1; min-width: 80px; padding: 0 4px; }
+
+.btn-add-more-options { background: none; border: none; color: #2563eb; font-weight: 600; font-size: 12px; cursor: pointer; }
+
+/* القوائم الجانبية */
+.checkbox-list-container { display: flex; flex-direction: column; gap: 10px; }
+.checkbox-row-item { display: flex; align-items: center; gap: 8px; }
+.tradehub-checkbox-square { accent-color: #062F22; width: 16px; height: 16px; }
+.checkbox-clickable-label { font-size: 13px; color: #4b5563; cursor: pointer; }
+.tags-output-flex-wrapper { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+/* الـ Modals */
+.tradehub-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.confirm-modal-box { background: white; max-width: 400px; width: 100%; border-radius: 12px; padding: 24px; text-align: center; }
+.warning-icon-badge { width: 48px; height: 48px; background: #fef2f2; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 20px; }
+.modal-buttons-row { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+.btn-modal-keep { background: #f3f4f6; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.btn-modal-confirm-delete { background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+/* حركات سينمائية */
+.animated { animation-duration: 0.2s; animation-fill-mode: both; }
+.fadeIn { animation-name: thFadeIn; }
+@keyframes thFadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }

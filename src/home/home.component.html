@@ -1,0 +1,132 @@
+
+<div class="carousel-indicators">
+
+    <button
+        type="button"
+        [class.active]="step === 1"
+        (click)="goTo(1)"
+        aria-label="Slide 1">
+    </button>
+
+    <button
+        type="button"
+        [class.active]="step === 2"
+        (click)="goTo(2)"
+        aria-label="Slide 2">
+    </button>
+
+</div>
+
+<!-- Slide 1 -->
+<div class="carousel-item" [class.active]="step === 1">
+
+    <section class="on-boarding">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+                    <div class="header-content">
+
+                        <img class="img-fluid languge" src="assets/images/language.png" alt="language">
+                        <img class="img-fluid logo d-block" src="assets/images/Frame 1.png" alt="logo">
+
+                        <div class="layer"></div>
+
+                        <h1 class="header">
+                            Welcome to <br>
+                            <span class="n-logo">TradeHub</span>
+                        </h1>
+
+                        <p class="plat-content">
+                            A platform to connect <br>
+                            <span>businesses and customers</span>
+                        </p>
+
+                        <button type="button" class="btn btn-header" (click)="next()">
+                            Next
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-hero position-relative">
+
+                        <img class="img-small" src="assets/images/Online banking on laptop screen (1).png" alt="banking">
+                        <img class="working" src="assets/images/Female specialist working in support service (1).png" alt="support">
+                        <img class="img-main" src="assets/images/Online meeting via group call.png" alt="meeting">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Slide 2 -->
+<div class="carousel-item" [class.active]="step === 2">
+
+    <section class="on-boarding2 m-0">
+        <div class="container">
+            <div class="row align-items-center justify-content-center mt-0">
+
+                <div class="col-md-6">
+                    <div class="header-content">
+
+                        <img class="img-fluid languge" src="assets/images/language.png" alt="language">
+                        <img class="img-fluid logo d-block" src="assets/images/Frame 1.png" alt="logo">
+
+                        <h1 class="header">
+                            Grow your business
+                            <br>
+                            <span class="n-logo"> with TradeHub</span>
+                        </h1>
+
+                        <p class="plat-content">
+                            Register your shop, manage products, <br>
+                            <span>and reach more customers easily.</span>
+                        </p>
+
+                        <ul class="lists d-flex">
+                            <li><i class="fa-solid fa-shop"></i><span>Register <br>your business</span></li>
+                            <li><i class="fa-solid fa-cube"></i><span>Add <br>your products</span></li>
+                            <li><i class="fa-solid fa-file-circle-check"></i><span>Receive <br>orders</span></li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center gap-4 py-4">
+
+                            <button type="button" class="btn btn-header" (click)="back()">
+                                Back
+                            </button>
+
+                            <button type="button" class="btn btn-header2" routerLink="/login">
+                                Get Start
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-hero position-relative">
+
+                        <img class="img-banking" src="assets/images/Online banking on laptop screen (1).png" alt="banking">
+                        <img class="img-graph" src="assets/images/tablet with graphs, coins and arrow.png" alt="graph">
+                        <img class="img-arrow" src="assets/images/green arrow.png" alt="arrow">
+                        <img class="Browser" src="assets/images/Browser window with combined chart and AI assistant.png" alt="browser">
+                        <img class="Cash" src="assets/images/Cash and coins.png" alt="cash">
+                        <img class="wallet" src="assets/images/Money wallet with credit card and receipt@2x.png" alt="wallet">
+
+                        <div class="layer2"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>

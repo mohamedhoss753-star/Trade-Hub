@@ -1,0 +1,141 @@
+/* Confirm Page */
+
+.login h1 {
+    color: #0F2A1D;
+    font-weight: 700;
+}
+
+.header-content {
+    position: relative;
+}
+
+/* Stepper */
+.stepper {
+    position: relative;
+    max-width: 700px;
+    margin: 20px 0;
+}
+
+.stepper::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: #dcdcdc;
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    background: white;
+    margin: auto;
+}
+
+.circle.done {
+    background: #123524;
+    border-color: #123524;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.step.active p {
+    color: #123524;
+    font-weight: 500;
+}
+
+/* Confirm info blocks */
+.confirm ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.confirm li {
+    color: #0F2A1D;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.confirm li b {
+    color: #0F2A1D;
+    font-size: 18px;
+}
+
+/* Checkbox */
+.form-check {
+    color: #000;
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.custom-btn {
+    width: 180px;
+    height: 55px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-next {
+    background-color: #0F2A1D;
+    color: #fff;
+    border: none;
+}
+
+.btn-next:hover {
+    background-color: #123825;
+    color: #fff;
+}
+
+/* Right image */
+.rounded-img {
+    border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .stepper {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center !important;
+    }
+
+    .stepper::before {
+        display: none;
+    }
+
+    .custom-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .confirm li {
+        font-size: 14px;
+    }
+
+    .form-check {
+        font-size: 14px;
+        margin-left: 0;
+    }
+}

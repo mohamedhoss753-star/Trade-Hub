@@ -1,0 +1,14 @@
+ :root {
+   --main-color: #000;
+   --primary-color: #0F2A1D;
+   --white-color: #fff;
+ }
+
+ body {
+   font-family: "Poppins", sans-serif;
+   margin: 0;
+   padding: 0;
+ }
+ .btn{
+  font-weight: bolder;
+ }

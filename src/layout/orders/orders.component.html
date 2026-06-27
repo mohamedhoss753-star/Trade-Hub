@@ -1,0 +1,187 @@
+<div class="orders-details-page">
+
+  <div class="invoice-main-card">
+
+    <!-- Header -->
+    <div class="invoice-top-bar">
+
+      <div class="inv-id-section">
+
+        <span class="inv-id">
+          Order ID: #{{ order?.id }}
+        </span>
+
+        <span class="status-tag" [ngClass]="orderStatus()">
+          {{ orderStatus() }}
+        </span>
+
+      </div>
+
+      <div class="inv-actions">
+
+        <select class="status-select" (change)="updateStatus($event)">
+          <option value="Pending">Pending</option>
+          <option value="Shipping">Shipping</option>
+          <option value="Completed">Completed</option>
+        </select>
+
+        <button class="icon-btn-print" (click)="printInvoice()">
+          <i class="fas fa-print"></i>
+        </button>
+
+        <button class="btn-save-green" (click)="saveOrder()">
+          Save Changes
+        </button>
+
+        <button class="btn btn-danger ms-2" (click)="cancelOrder()">
+          Cancel Order
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Customer -->
+    <div class="info-blocks-grid">
+
+      <div class="info-block">
+
+        <div class="block-icon">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="block-text">
+
+          <h4>Customer</h4>
+
+          <p class="name">
+            {{ order?.companyName || 'N/A' }}
+          </p>
+
+          <p>
+            {{ order?.address || 'N/A' }}
+          </p>
+
+          <button class="action-link-btn" (click)="toggleCustomerView()">
+            View Details
+          </button>
+
+        </div>
+
+      </div>
+
+      @if (showCustomerDetails()) {
+
+      <div class="info-block extra-details">
+
+        <p>
+          <strong>Status:</strong>
+          {{ order?.orderStatus || 'N/A' }}
+        </p>
+
+        <p>
+          <strong>Payment:</strong>
+          {{ order?.paymentStatus || 'N/A' }}
+        </p>
+
+        <p>
+          <strong>Created:</strong>
+          {{ order?.createdAt | date:'medium' }}
+        </p>
+
+      </div>
+
+      }
+
+    </div>
+
+    <!-- Products -->
+    <div class="products-invoice-section">
+
+      <h3>Products</h3>
+
+      <table class="invoice-table">
+
+        <thead>
+          <tr>
+
+            <th width="40">
+              <input type="checkbox" (change)="toggleAllItems($event)">
+            </th>
+
+            <th>Product Name</th>
+            <th>Product ID</th>
+            <th>Quantity</th>
+
+            <th class="text-right">Total</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          @for (item of products(); track item.id) {
+
+          <tr>
+
+            <td>
+              <input
+                type="checkbox"
+                [checked]="item.selected"
+                (change)="item.selected = $any($event.target).checked">
+            </td>
+
+            <td>{{ item.name }}</td>
+            <td>#{{ item.id }}</td>
+
+            <td>
+
+              <div class="quantity-control">
+
+                <button (click)="updateQuantity(item.id, -1)">-</button>
+
+                <span>{{ item.quantity }}</span>
+
+                <button (click)="updateQuantity(item.id, 1)">+</button>
+
+              </div>
+
+            </td>
+
+            <td class="text-right">
+              ₹{{ item.price * item.quantity | number:'1.2-2' }}
+            </td>
+
+          </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+      <!-- Summary -->
+      <div class="invoice-summary-wrapper">
+
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span>₹{{ subtotal() | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-line">
+          <span>Tax</span>
+          <span>₹{{ tax() | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-line total-final">
+          <span>Total</span>
+          <span>₹{{ total() | number:'1.2-2' }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

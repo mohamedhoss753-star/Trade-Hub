@@ -1,0 +1,82 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-around align-items-center gx-5">
+
+            <div class="col-md-6 mt-md-0">
+                <div class="header-content position-relative">
+
+                    <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+                    <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+                    <div class="stepper d-flex justify-content-between align-items-center">
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Business Info</p>
+                        </div>
+
+                        <div class="step active text-center">
+                            <div class="circle done">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p>Location</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Payment</p>
+                        </div>
+
+                        <div class="step text-center">
+                            <div class="circle"></div>
+                            <p>Confirm</p>
+                        </div>
+
+                    </div>
+
+                    <h1 class="fw-bold text-black">Location</h1>
+
+                    <div class="location w-100">
+
+                        <form>
+
+                            <div class="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+                                <div id="map-container" style="width: 100%; hieght: 100%; z-index: 1;"></div>
+                            </div>
+
+                            <div class="mt-3 position-relative">
+
+                                <input type="text" class="form-control form-control-lg pe-5" placeholder="Enter Address"
+                                    [(ngModel)]="address" name="address">
+
+                                <i class="fa-solid fa-pen input-icon"></i>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center gap-5 py-4">
+
+                        <button type="button" class="btn btn-outline-dark custom-btn" (click)="goBack()">
+                            Back
+                        </button>
+
+                        <button type="button" class="btn custom-btn btn-next" (click)="goNext()" [disabled]="!address">
+                            Next
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <img class="img-fluid rounded-img" src="assets/images/Image.png" alt="Image">
+            </div>
+
+        </div>
+    </div>
+</section>

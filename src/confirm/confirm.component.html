@@ -1,0 +1,91 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-around align-items-center gx-5">
+
+            <div class="col-md-6 mt-md-0">
+                <div class="header-content position-relative">
+
+                    <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+                    <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+                    <div class="stepper d-flex justify-content-between align-items-center">
+                        <div class="step active text-center">
+                            <div class="circle done"><i class="fa-solid fa-check"></i></div>
+                            <p>Business Info</p>
+                        </div>
+                        <div class="step active text-center">
+                            <div class="circle done"><i class="fa-solid fa-check"></i></div>
+                            <p>Location</p>
+                        </div>
+                        <div class="step active text-center">
+                            <div class="circle done"><i class="fa-solid fa-check"></i></div>
+                            <p>Payment</p>
+                        </div>
+                        <div class="step active text-center">
+                            <div class="circle done"><i class="fa-solid fa-check"></i></div>
+                            <p>Confirm</p>
+                        </div>
+                    </div>
+
+                    <h1 class="fw-bold text-black">Review Your Information</h1>
+
+                    <div class="location w-100 g-2">
+                        <div class="row g-3">
+                            <div class="confirm">
+                                <ul>
+                                    <li><b class="user">Owner Info</b></li>
+                                    <li>{{ ownerName }}</li>
+                                    <li>{{ ownerEmail }}</li>
+                                    <li>{{ ownerPhone }}</li>
+                                </ul>
+
+                                <ul>
+                                    <li><b class="user">Business Info</b></li>
+                                    <li>{{ businessName }}</li>
+                                    <li>{{ businessType }}</li>
+                                    <li>{{ businessEmail }}</li>
+                                </ul>
+
+                                <ul>
+                                    <li><b class="user">Location</b></li>
+                                    <li>{{ address }}</li>
+                                </ul>
+
+                                <ul>
+                                    <li><b class="user">Payment Info</b></li>
+                                    <li>{{ paymentMethod }}</li>
+                                    <li>Merchant ID: {{ merchantId }}</li>
+                                    <li>Integration ID: {{ integrationId }}</li>
+                                </ul>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="isConfirmed"
+                                    name="isConfirmed" />
+                                <label class="form-check-label" for="confirm">
+                                    I Confirm that all the information provided is correct.
+                                </label>
+                            </div>
+
+                            <div class="d-flex justify-content-center align-items-center gap-5 py-4">
+                                <button type="button" class="btn btn-outline-dark custom-btn" (click)="goBack()">
+                                    Back
+                                </button>
+
+                                <button type="button" class="btn custom-btn btn-next" (click)="submit()"
+                                    [disabled]="!isConfirmed">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <img class="img-fluid rounded-img" src="assets/images/Image.png" alt="Image">
+            </div>
+
+        </div>
+    </div>
+</section>

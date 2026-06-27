@@ -1,0 +1,128 @@
+/* Check Mail Page */
+
+.login h1 {
+    color: #0F2A1D;
+    font-weight: 700;
+}
+
+.header-content {
+    position: relative;
+}
+
+.step-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    text-align: center;
+}
+
+.step-content p {
+    color: #696969;
+    font-size: 12px;
+    margin: 0;
+}
+
+.step-content span {
+    color: #4B7762;
+    font-size: 12px;
+}
+
+.user {
+    color: #0F2A1D;
+}
+
+.check {
+    width: 47px;
+    height: 65px;
+    border: 1px solid #58795E;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.otp-input:focus {
+    border-color: #0F2A1D;
+    box-shadow: none;
+}
+
+.custom-btn {
+    width: 180px;
+    height: 55px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.btn-next {
+    background-color: #0F2A1D;
+    color: #fff;
+    border: none;
+}
+
+.btn-next:hover {
+    background-color: #123825;
+    color: #fff;
+}
+
+.box-hero {
+    position: relative;
+}
+
+.layer2 {
+    position: absolute;
+    top: 150px;
+    right: -400px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+        circle,
+        rgba(15, 42, 29, 0.9) 0%,
+        rgba(15, 42, 29, 0.7) 35%,
+        rgba(15, 42, 29, 0.4) 60%,
+        rgba(15, 42, 29, 0) 80%
+    );
+    filter: blur(40px);
+    z-index: 1;
+}
+
+.box-hero img {
+    position: relative;
+    z-index: 2;
+}
+
+a.user {
+    color: #0F2A1D;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .step-content {
+        position: static;
+        width: 100% !important;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .otp-group {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+    .check {
+        width: 42px;
+        height: 55px;
+    }
+
+    .custom-btn {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .layer2 {
+        width: 450px;
+        height: 450px;
+        top: -50px;
+        right: -120px;
+    }
+}

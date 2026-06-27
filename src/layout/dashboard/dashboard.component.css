@@ -1,0 +1,258 @@
+/* تنسيق الصفحة العام */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.date-picker-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* كروت الإحصائيات العلوية التفاعلية */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card.active-card {
+  border-color: #091e16;
+  background-color: #f0fdf4;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.trend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.trend.positive { color: #10b981; }
+.trend.negative { color: #ef4444; }
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 8px;
+}
+
+/* قسم الرسم البياني التفاعلي */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header-flex h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #0f172a;
+}
+
+.highlight-text {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.action-text {
+  font-size: 0.8rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* حركات وأعمدة الرسم البياني والـ Tooltip */
+.bars-mock {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  padding-top: 20px;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.bar {
+  width: 35px;
+  background-color: #f1f5f9;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bar:hover, .bar.active-bar {
+  background-color: #eab308;
+}
+
+.bar .tooltip {
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #334155;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.bar:hover .tooltip {
+  display: block;
+}
+
+.bar-label {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* كارت الدائرة الجانبي */
+.circle-progress-mock {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 8px solid #f1f5f9;
+  border-top-color: #10b981;
+  margin: 30px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-text {
+  text-align: center;
+}
+
+.circle-text h2 { margin: 0; font-size: 1.4rem; }
+.circle-text p { margin: 0; font-size: 0.75rem; color: #64748b; }
+
+/* جدول آخر الطلبات في الأسفل */
+.table-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.custom-table th {
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-table td {
+  padding: 16px;
+  font-size: 0.9rem;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prod-img {
+  width: 32px;
+  height: 32px;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.pending { background-color: #fef3c7; color: #d97706; }
+.badge.shipped { background-color: #e0f2fe; color: #0284c7; }
+.badge.completed { background-color: #dcfce7; color: #15803d; }
+
+.actions-btns {
+  display: flex;
+  gap: 12px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+.actions-btns i:hover{ 
+    color: #334155; 
+}

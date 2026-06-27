@@ -1,0 +1,157 @@
+/* Business Info Page */
+
+.login h1 {
+    color: #0F2A1D;
+    font-weight: 700;
+}
+
+.header-content {
+    position: relative;
+}
+
+/* Stepper */
+.stepper {
+    position: relative;
+    max-width: 700px;
+    margin: 20px 0;
+}
+
+.stepper::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: #dcdcdc;
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    background: white;
+    margin: auto;
+}
+
+.circle.done {
+    background: #123524;
+    border-color: #123524;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.step.active p {
+    color: #123524;
+    font-weight: 500;
+}
+
+/* Form */
+.form-label {
+    color: #000;
+    font-weight: 500;
+}
+
+.form-control {
+    height: 55px;
+    border-radius: 6px;
+}
+
+.forget {
+    background-color: #fff;
+    color: #94AA98;
+    border: 1px solid #94AA98;
+}
+
+.forget::placeholder {
+    color: #94AA98;
+}
+
+/* Select */
+.form-select {
+    height: 55px;
+    border-radius: 6px;
+    border: 1px solid #58795E;
+    color: #58795E;
+}
+
+/* Description */
+textarea.form-control {
+    border-radius: 6px;
+}
+
+/* Business logo */
+.business {
+    color: #517363;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Camera / upload area */
+.camera img {
+    max-width: 160px;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.custom-btn {
+    width: 180px;
+    height: 55px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-next {
+    background-color: #0F2A1D;
+    color: #fff;
+    border: none;
+}
+
+.btn-next:hover {
+    background-color: #123825;
+    color: #fff;
+}
+
+/* Image */
+.rounded-img {
+    border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .stepper {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center !important;
+    }
+
+    .stepper::before {
+        display: none;
+    }
+
+    .custom-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .camera img {
+        max-width: 120px;
+    }
+}

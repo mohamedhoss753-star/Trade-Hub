@@ -1,0 +1,55 @@
+<div class="settings-container">
+  <h1 class="page-title">Settings</h1>
+
+  <div class="settings-card" [formGroup]="settingsForm">
+    <div class="tabs-header">
+      @for (tab of tabs; track tab) {
+        <button [class.active]="activeTab === tab" (click)="activeTab = tab">
+          {{ tab | titlecase }}
+        </button>
+      }
+    </div>
+
+    <div class="tab-body">
+      @if (activeTab === 'profile') {
+        <div class="profile-layout">
+          <div class="avatar-section">
+            <img [src]="profileImage" class="avatar-img">
+            <input type="file" #fileInput hidden (change)="onImageSelected($event)">
+            <button class="edit-btn" (click)="fileInput.click()">Edit File</button>
+          </div>
+          
+          <div class="form-grid">
+            <div class="input-group"><label>First Name</label><input formControlName="firstName"></div>
+            <div class="input-group"><label>Last Name</label><input formControlName="lastName"></div>
+            <div class="input-group"><label>Email Address</label><input formControlName="email"></div>
+            <div class="input-group"><label>Phone Number</label><input formControlName="phone"></div>
+          </div>
+
+          <div class="personal-settings-section">
+            <h3>Personal Settings</h3>
+            <p>Type on settings and create.</p>
+            <div class="form-grid-3">
+              <div class="input-group"><label>Language</label><select formControlName="language"><option>English</option><option>Arabic</option></select></div>
+              <div class="input-group"><label>Timezone</label><select formControlName="timezone"><option>(GMT+02:00) Cairo</option></select></div>
+              <div class="input-group"><label>Theme</label><select formControlName="theme"><option>Light</option><option>Dark</option></select></div>
+            </div>
+          </div>
+        </div>
+      }
+
+      @if (activeTab === 'notifications') {
+        <div class="toggle-list">
+          <div class="toggle-item"><div><h4>Personalized Offers</h4><p>Custom offert wory want to iasage</p></div><input type="checkbox" formControlName="personalizedOffers"></div>
+          <div class="toggle-item"><div><h4>Online Webinars</h4><p>Custom webinars sag a big webinars</p></div><input type="checkbox" formControlName="onlineWebinars"></div>
+          <div class="toggle-item"><div><h4>New Features</h4><p>Custom event mes rogis and by agath niergm</p></div><input type="checkbox" formControlName="newFeatures"></div>
+        </div>
+      }
+    </div>
+
+    <div class="footer-actions">
+      <button class="btn-cancel">Cancel</button>
+      <button class="btn-save" (click)="saveSettings()">Save Changes</button>
+    </div>
+  </div>
+</div>

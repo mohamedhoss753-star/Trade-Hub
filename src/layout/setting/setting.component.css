@@ -1,0 +1,22 @@
+.setting-container { padding: 40px; font-family: sans-serif; text-align: center; }
+
+.toggle-switch { margin-bottom: 30px; }
+.toggle-switch button { padding: 10px 20px; border: 1px solid #ddd; cursor: pointer; }
+.toggle-switch button.active { background: #004d40; color: white; }
+
+.plans-grid { display: flex; gap: 20px; justify-content: center; }
+
+.plan-card { 
+  border: 1px solid #eee; padding: 30px; border-radius: 12px; width: 300px; 
+  position: relative; transition: transform 0.3s;
+}
+
+.plan-card.popular { border: 2px solid #004d40; }
+.badge { position: absolute; top: -12px; background: #004d40; color: white; padding: 4px 10px; font-size: 12px; }
+
+.price { font-size: 2rem; font-weight: bold; margin: 20px 0; }
+ul { list-style: none; padding: 0; text-align: left; }
+.included { color: green; margin-bottom: 10px; }
+.excluded { color: #ccc; margin-bottom: 10px; }
+
+.select-btn { width: 100%; padding: 12px; background: #004d40; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px; }

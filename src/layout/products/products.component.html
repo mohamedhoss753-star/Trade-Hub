@@ -1,0 +1,305 @@
+<div class="products-container">
+  
+  @if (!isCreateOpen() && !isEditOpen()) {
+    <div class="tradehub-card">
+      
+      <div class="table-main-header">
+        <h2 class="page-title">products</h2>
+        <div class="header-action-buttons">
+          <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+          <button class="btn-add-tradehub" (click)="openCreate()">
+            <i class="fas fa-plus"></i> Add Product
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-search-bar">
+        <div class="filter-dropdown">
+          <span>Filter</span>
+          <i class="fas fa-chevron-down text-xs"></i>
+        </div>
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Search product name..." [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" />
+        </div>
+      </div>
+
+      <div class="table-responsive-wrapper">
+        <table class="tradehub-table">
+          <thead>
+            <tr>
+              <th width="40"><input type="checkbox" class="tradehub-checkbox" /></th>
+              <th>Product</th>
+              <th>Inventory</th>
+              <th>Color</th>
+              <th>Price</th>
+              <th>Rating</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of filteredProducts(); track item.id) {
+              <tr>
+                <td><input type="checkbox" class="tradehub-checkbox" /></td>
+                <td>
+                  <div class="product-cell-profile">
+                    @if (item.imageUrl) {
+                      <img [src]="item.imageUrl" class="product-avatar" alt="Product Image" />
+                    } @else {
+                      <div class="product-avatar-placeholder"><i class="fas fa-image"></i></div>
+                    }
+                    <div class="product-meta-text">
+                      <span class="product-title-name">{{ item.name }}</span>
+                      <span class="product-sub-category">{{ item.categoryName }}</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  @if (item.quantity > 0) {
+                    <span class="inventory-status-text">{{ item.quantity }} in stock</span>
+                  } @else {
+                    <span class="badge-out-of-stock">Out of Stock</span>
+                  }
+                </td>
+                <td class="text-gray-500">{{ item.color || 'White' }}</td>
+                <td class="font-semibold text-gray-950">${{ item.price | number:'1.2-2' }}</td>
+                <td>
+                  <div class="rating-cell-container">
+                    <span class="rating-number">5.0</span>
+                    <span class="rating-votes">(32 Votes)</span>
+                  </div>
+                </td>
+                <td class="text-right">
+                  <div class="table-row-actions">
+                    <button class="row-edit-link" (click)="openEdit(item)"><i class="fas fa-edit"></i></button>
+                    <button class="row-delete-link" (click)="openDelete(item)"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="7" class="tradehub-no-data">No products available. Try adding a new product!</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tradehub-pagination-footer">
+        <div class="pagination-controls">
+          <button class="pag-arrow-btn"><i class="fas fa-chevron-left"></i></button>
+          <button class="pag-num-btn active">1</button>
+          <span class="pag-ellipsis">...</span>
+          <button class="pag-arrow-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="total-results-count">{{ filteredProducts().length }} Results</div>
+      </div>
+
+    </div>
+  }
+
+  @if (isCreateOpen() || isEditOpen()) {
+    <form [formGroup]="productForm" class="form-container-view animated fadeIn">
+      
+      <div class="form-action-header">
+        <div class="back-navigation-zone">
+          <button type="button" class="back-link-btn" (click)="closeForm()">← Back</button>
+          <h1 class="form-main-title">{{ isCreateOpen() ? 'Add Product' : 'Edit Product' }}</h1>
+        </div>
+        <div class="header-form-buttons">
+          <button type="button" class="btn-form-cancel" (click)="closeForm()">Cancel</button>
+          <button type="submit" [disabled]="productForm.invalid" class="btn-form-save" 
+                  (click)="isCreateOpen() ? saveProduct() : saveEdit()">
+            Save
+          </button>
+        </div>
+      </div>
+
+      <div class="form-layout-grid">
+        
+        <div class="form-main-column">
+          
+          <div class="form-section-card">
+            <h3 class="section-card-title">Information</h3>
+            <div class="form-field-group">
+              <label>Product Name *</label>
+              <input type="text" formControlName="name" placeholder="Summer T-Shirt" />
+            </div>
+            <div class="form-field-group">
+              <label>Product Description</label>
+              <textarea formControlName="description" rows="4" placeholder="Product description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section-card">
+            <h3 class="section-card-title">Images</h3>
+            <div class="drag-drop-zone" (click)="fileInput.click()">
+              @if (imagePreview()) {
+                <div class="image-preview-wrapper">
+                  <img [src]="imagePreview()" alt="Preview" />
+                  <div class="image-overlay-msg">Click to change image</div>
+                </div>
+              } @else {
+                <button type="button" class="btn-trigger-upload">Add File</button>
+                <p class="upload-subtext">Or drag and drop files</p>
+              }
+              <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;" />
+            </div>
+          </div>
+
+          <div class="form-section-card">
+            <h3 class="section-card-title">Price</h3>
+            <div class="form-fields-row">
+              <div class="form-field-group flex-1">
+                <label>Product Price *</label>
+                <input type="number" formControlName="price" placeholder="Enter price" />
+              </div>
+              <div class="form-field-group flex-1">
+                <label>Discount Price</label>
+                <input type="number" formControlName="discountPrice" placeholder="Price at Discount" />
+              </div>
+            </div>
+            <div class="form-toggle-switch-wrapper">
+              <label class="switch-control">
+                <input type="checkbox" formControlName="addTax" />
+                <span class="switch-slider"></span>
+              </label>
+              <span class="switch-label-text">Add tax for this product</span>
+            </div>
+          </div>
+
+          <div class="form-section-card">
+            <div class="flex-justify-between mb-4">
+              <h3 class="section-card-title">Different Options</h3>
+              <div class="form-toggle-switch-wrapper">
+                <label class="switch-control">
+                  <input type="checkbox" formControlName="hasOptions" />
+                  <span class="switch-slider"></span>
+                </label>
+                <span class="switch-label-text font-semibold">This product has multiple options</span>
+              </div>
+            </div>
+
+            @if (productForm.get('hasOptions')?.value) {
+              <div formArrayName="options" class="options-dynamic-container">
+                @for (opt of optionsArray.controls; let idx = $index; track idx) {
+                  <div [formGroupName]="idx" class="option-row-box">
+                    <div class="option-type-select">
+                      <label>Option Type</label>
+                      <select formControlName="type">
+                        <option value="Size">Size</option>
+                        <option value="Color">Color</option>
+                        <option value="Material">Material</option>
+                      </select>
+                    </div>
+                    <div class="option-values-chips-input">
+                      <label>Values (Press Enter to add)</label>
+                      <div class="chips-flex-container">
+                        @for (val of opt.get('values')?.value; let valIdx = $index; track valIdx) {
+                          <span class="chip-item">
+                            {{ val }}
+                            <button type="button" class="chip-remove-btn" (click)="removeOptionValue(idx, valIdx)">×</button>
+                          </span>
+                        }
+                        <input type="text" placeholder="Add custom value..." (keydown.enter)="addOptionValue(idx, $event)" />
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-row" (click)="removeOptionRow(idx)">×</button>
+                  </div>
+                }
+                <button type="button" class="btn-add-more-options" (click)="addOptionRow()">+ Add More Options</button>
+              </div>
+            }
+          </div>
+
+          <div class="form-section-card">
+            <h3 class="section-card-title">Shipping</h3>
+            <div class="form-fields-row">
+              <div class="form-field-group flex-1">
+                <label>Weight</label>
+                <input type="text" formControlName="weight" placeholder="Enter Weight" />
+              </div>
+              <div class="form-field-group flex-1">
+                <label>Country</label>
+                <select formControlName="country">
+                  <option value="">Select Country</option>
+                  <option value="United States">United States</option>
+                  <option value="Egypt">Egypt</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-toggle-switch-wrapper pt-2">
+              <label class="switch-control">
+                <input type="checkbox" formControlName="isDigital" />
+                <span class="switch-slider"></span>
+              </label>
+              <span class="switch-label-text">This is digital item</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-side-column">
+          
+          <div class="form-section-card" formGroupName="categories">
+            <h3 class="section-card-title">Categories</h3>
+            <div class="checkbox-list-container">
+              @for (cat of availableCategories; track cat) {
+                <div class="checkbox-row-item">
+                  <input type="checkbox" [id]="'cat-'+cat" [formControlName]="cat" class="tradehub-checkbox-square" />
+                  <label [for]="['cat-'+cat]" class="checkbox-clickable-label">{{ cat }}</label>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="form-section-card">
+            <h3 class="section-card-title">Tags</h3>
+            <div class="form-field-group">
+              <label>Add Tags (Press Enter)</label>
+              <input type="text" placeholder="Enter tag name..." (keydown.enter)="addTagElement($event)" />
+            </div>
+            <div class="tags-output-flex-wrapper">
+              @for (tag of productForm.get('tags')?.value; track tag) {
+                <span class="chip-item text-indigo">
+                  {{ tag }}
+                  <button type="button" class="chip-remove-btn" (click)="removeTagElement(tag)">×</button>
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="form-section-card">
+            <h3 class="section-card-title">SEO Settings</h3>
+            <div class="form-field-group">
+              <label>Title</label>
+              <input type="text" formControlName="seoTitle" placeholder="SEO Meta Title" />
+            </div>
+            <div class="form-field-group">
+              <label>Description</label>
+              <textarea formControlName="seoDescription" rows="3" placeholder="SEO Description Summary"></textarea>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+  }
+
+  @if (isDeleteOpen()) {
+    <div class="tradehub-modal-overlay">
+      <div class="confirm-modal-box animated scaleUp">
+        <div class="warning-icon-badge"><i class="fas fa-exclamation-triangle"></i></div>
+        <h3 class="modal-box-title">Confirm Delete</h3>
+        <p class="modal-box-text">Are you sure you want to permanently remove <strong>{{ selectedProduct()?.name }}</strong>?</p>
+        <div class="modal-buttons-row">
+          <button class="btn-modal-keep" (click)="isDeleteOpen.set(false)">Cancel</button>
+          <button class="btn-modal-confirm-delete" (click)="confirmDelete()" >Delete</button>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>

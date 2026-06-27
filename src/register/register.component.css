@@ -1,0 +1,114 @@
+/* Register Page */
+
+.login h1 {
+    color: #0F2A1D;
+}
+
+.form-label {
+    color: #58795E;
+}
+
+.forget {
+    background-color: #fff;
+    color: #94AA98;
+    border: 1px solid #94AA98;
+}
+
+.form-control {
+    height: 55px;
+    border-radius: 6px;
+}
+
+.form-control::placeholder {
+    color: #94AA98;
+}
+
+.input-group-text {
+    color: #686677;
+}
+
+.form-check-label {
+    color: #58795E;
+}
+
+.form-check {
+    color: #000;
+    font-size: 20px;
+    margin-left: 35px;
+    font-weight: bolder;
+}
+
+.signup span {
+    color: #6B6B6B;
+}
+
+.log {
+    font-size: 20px;
+    color: #0F2A1D;
+}
+
+.rounded-img {
+    border-radius: 20px;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.google-icon {
+    font-size: 24px;
+    background: linear-gradient(
+        #EA4335 25%,
+        #FBBC05 20%,
+        #34A853 10%,
+        #4285F4
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-btn {
+    width: 180px;
+    height: 55px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.btn-next {
+    background-color: #0F2A1D;
+    color: #fff;
+    border: none;
+}
+
+.btn-next:hover {
+    background-color: #123825;
+    color: #fff;
+}
+
+a {
+    color: #686677;
+}
+
+input {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .custom-btn {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .form-check {
+        margin-left: 0;
+        font-size: 16px;
+    }
+
+    .rounded-img {
+        margin-top: 30px;
+    }
+}

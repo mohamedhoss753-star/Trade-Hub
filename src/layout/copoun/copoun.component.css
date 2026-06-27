@@ -1,0 +1,209 @@
+.coupons-container {
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.btn-create {
+  background-color: #0a3622;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.btn-create:hover { background-color: #062316; }
+
+.main-card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+/* التبويبات النشطة (Tabs Custom Styles) */
+.tabs-container {
+  display: flex;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover { color: #212529; }
+
+.tab-btn.active {
+  color: #0a3622;
+  border-bottom-color: #0a3622;
+  font-weight: 600;
+}
+
+/* شريط الفلاتر والبحث */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.search-section {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.filter-select {
+  padding: 8px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #495057;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.search-input:focus { border-color: #0a3622; outline: none; }
+.search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #adb5bd; }
+
+.action-buttons { display: flex; gap: 8px; }
+
+.icon-btn {
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  color: #495057;
+  transition: all 0.2s;
+}
+
+.icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.icon-btn.edit-btn:not(:disabled):hover { border-color: #0a3622; color: #0a3622; }
+.icon-btn.delete-btn:not(:disabled):hover { border-color: #dc3545; color: #dc3545; }
+
+/* الـ Table وتأثير السطور المفعلة */
+.table-wrapper { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.data-table th { background-color: #f8f9fa; color: #6c757d; font-size: 11px; font-weight: 600; text-transform: uppercase; padding: 14px 12px; border-bottom: 1px solid #dee2e6; }
+.data-table td { padding: 14px 12px; border-bottom: 1px solid #f1f3f5; font-size: 14px; vertical-align: middle; }
+
+.selected-row { background-color: #f4f7f5; }
+
+.coupon-info-cell { display: flex; align-items: center; gap: 12px; }
+.coupon-tag-icon { padding: 8px 10px; background-color: #e8f5e9; color: #1b5e20; border-radius: 8px; font-size: 14px; }
+.coupon-name-text { font-weight: 500; color: #212529; margin: 0 0 2px 0; }
+.coupon-code-text { font-size: 12px; color: #adb5bd; margin: 0; font-family: monospace; }
+
+/* الأزرار الداخلية لكل صف في الجدول */
+.row-actions { display: flex; gap: 6px; }
+.row-actions button { background: none; border: none; cursor: pointer; padding: 6px 10px; border-radius: 4px; font-size: 13px; color: #6c757d; transition: all 0.2s; }
+.row-actions .row-btn-edit:hover { background-color: #e8f5e9; color: #0a3622; }
+.row-actions .row-btn-delete:hover { background-color: #f8d7da; color: #dc3545; }
+
+.badge { padding: 4px 8px; font-size: 11px; font-weight: 600; border-radius: 4px; text-transform: uppercase; }
+.badge-active { background-color: #d1e7dd; color: #0f5132; }
+.badge-expired { background-color: #e2d9f3; color: #4b2394; }
+
+.empty-state { text-align: center; color: #adb5bd; padding: 32px !important; font-style: italic; }
+
+/* أزرار الصفحات الفعالة تكراراً */
+.pagination-container { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 13px; }
+.pagination-buttons { display: flex; gap: 4px; }
+.pag-nav, .pag-num { padding: 6px 12px; border: 1px solid #ced4da; background: #fff; border-radius: 6px; cursor: pointer; color: #495057; font-size: 13px; }
+.pag-nav:disabled { opacity: 0.4; cursor: not-allowed; }
+.pag-num.active { background-color: #0a3622; color: white; border-color: #0a3622; font-weight: 600; }
+
+/* ========================================== */
+/* MODAL TWEAKS                               */
+/* ========================================== */
+.modal-backdrop { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background-color: #ffffff; width: 100%; max-width: 640px; max-height: 85vh; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; flex-direction: column; overflow: hidden; animation: zoomIn 0.2s ease-out; }
+@keyframes zoomIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-header { padding: 18px 24px; border-bottom: 1px solid #efefef; display: flex; justify-content: space-between; align-items: center; }
+.modal-title { font-size: 18px; font-weight: 700; color: #212529; margin: 0; }
+.modal-subtitle { font-size: 12px; color: #adb5bd; margin: 4px 0 0 0; }
+.close-x-btn { background: none; border: none; font-size: 26px; color: #adb5bd; cursor: pointer; line-height: 1; }
+
+.modal-body { padding: 24px; overflow-y: auto; }
+.form-stack { display: flex; flex-direction: column; gap: 24px; }
+.form-section { border-bottom: 1px dashed #f1f3f5; padding-bottom: 20px; }
+.form-section:last-child { border-bottom: none; padding-bottom: 0; }
+.section-title { font-size: 14px; font-weight: 700; color: #212529; margin: 0 0 16px 0; }
+
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 500px) { .form-grid-2 { grid-template-columns: 1fr; } }
+
+.input-label { display: block; font-size: 12px; font-weight: 600; color: #495057; margin-bottom: 6px; }
+.form-input, .form-select { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 8px; font-size: 13px; box-sizing: border-box; background-color: #fff; }
+.form-input:focus, .form-select:focus { border-color: #0a3622; outline: none; }
+.form-input:disabled { background-color: #f8f9fa; color: #adb5bd; }
+
+/* كروت نوع الكوبونات الأربعة */
+.type-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+@media(max-width: 500px) { .type-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.type-card { border: 1px solid #dee2e6; border-radius: 10px; padding: 14px 8px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 85px; transition: all 0.2s; }
+.type-card:hover { background-color: #f8f9fa; }
+.type-card.selected { border: 2px solid #0a3622; background-color: #f4f7f5; }
+.card-icon { font-size: 18px; color: #6c757d; margin-bottom: 6px; }
+.type-card.selected .card-icon { color: #0a3622; }
+.card-text { font-size: 11px; font-weight: 600; color: #495057; margin: 0; }
+.type-card.selected .card-text { color: #0a3622; }
+
+.checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6c757d; cursor: pointer; }
+.mb-8 { margin-bottom: 6px; }
+
+.modal-footer { padding: 16px 24px; border-top: 1px solid #efefef; display: flex; justify-content: flex-end; gap: 12px; background-color: #f8f9fa; }
+.btn-cancel { background: #fff; border: 1px solid #ced4da; padding: 10px 20px; border-radius: 8px; font-size: 13px; cursor: pointer; color: #495057; font-weight: 500; }
+.btn-save { background: #0a3622; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; color: #fff; cursor: pointer; font-weight: 500; }
+.btn-save:hover { background-color: #062316; }

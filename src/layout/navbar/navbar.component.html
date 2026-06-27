@@ -1,0 +1,68 @@
+
+<header class="navbar-wrapper">
+  <div class="navbar-brand">
+    <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+  </div>
+
+  <div class="navbar-search">
+    <i class="fa fa-search search-icon"></i>
+    <input type="text" placeholder="Search" />
+  </div>
+
+  <div class="navbar-actions">
+      <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+
+
+    <div class="notification-badge">
+      <i class="fa fa-bell"></i>
+      <span class="dot"></span>
+    </div>
+
+  <div class="dropdown">
+
+  <button
+    class="btn border-0 bg-transparent d-flex align-items-center gap-2"
+    data-bs-toggle="dropdown">
+
+    <img
+      [src]="profileImage"
+      class="rounded-circle"
+      width="40"
+      height="40"
+      alt="profile">
+
+    <span class="user-name">
+      {{ userName }}
+    </span>
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end">
+
+    <li>
+      <a class="dropdown-item" routerLink="/profile">
+        Profile
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" routerLink="/change-password">
+        Change Password
+      </a>
+    </li>
+
+    <li>
+      <button
+        class="dropdown-item text-danger"
+        (click)="logout()">
+        Logout
+      </button>
+    </li>
+
+  </ul>
+
+</div>
+  </div>
+</header>

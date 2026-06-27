@@ -1,0 +1,100 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-around align-items-center gx-5">
+
+      <div class="col-md-6 mt-md-0">
+        <div class="header-content position-relative">
+
+          <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+          <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+          <h1 class="fw-bold text-black">Create Account 🚀</h1>
+          <p class="text-secondary mb-4">Start your journey with us</p>
+
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control forget" placeholder="First name" formControlName="firstName">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control forget" placeholder="Last name" formControlName="lastName">
+              </div>
+            </div>
+
+            <div class="mb-3 mt-3">
+              <input type="email" class="form-control forget" placeholder="Enter your email" formControlName="email">
+            </div>
+
+            <div class="mb-3">
+              <input type="tel" class="form-control forget" placeholder="Phone number" formControlName="phoneNumber">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'"
+                       class="form-control forget"
+                       placeholder="Enter password"
+                       formControlName="password">
+                <span class="input-group-text">
+                  <i class="fa-regular" [class.fa-eye]="showPassword" [class.fa-eye-slash]="!showPassword"
+                     (click)="togglePassword()" style="cursor:pointer"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Confirm Password</label>
+              <div class="input-group">
+                <input [type]="showConfirmPassword ? 'text' : 'password'"
+                       class="form-control forget"
+                       placeholder="Confirm password"
+                       formControlName="confirmPassword">
+                <span class="input-group-text">
+                  <i class="fa-regular" [class.fa-eye]="showConfirmPassword" [class.fa-eye-slash]="!showConfirmPassword"
+                     (click)="toggleConfirmPassword()" style="cursor:pointer"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">I agree to terms & conditions</label>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center gap-2 py-4">
+              <button type="button" class="btn btn-outline-dark custom-btn" routerLink="/login">Back</button>
+              
+              <button type="submit" class="btn custom-btn btn-next">Next</button>
+            </div>
+
+            <div class="text-center mt-3">
+              <span>Already have an account? </span>
+              <a class="log" (click)="goToLogin()" style="cursor:pointer">Login</a>
+            </div>
+
+            <div class="d-flex align-items-center my-4">
+              <div class="flex-grow-1 border-top"></div>
+              <span class="px-3 text-secondary small">OR</span>
+              <div class="flex-grow-1 border-top"></div>
+            </div>
+          </form>
+
+          <ul class="list-unstyled d-flex justify-content-center gap-4 p-0 m-0">
+            <li (click)="loginWithGoogle()" style="cursor:pointer"><i class="fa-brands fa-google google-icon"></i></li>
+            <li (click)="loginWithApple()" style="cursor:pointer"><i class="fa-brands fa-apple text-black icon"></i></li>
+            <li (click)="loginWithFacebook()" style="cursor:pointer"><i class="fa-brands fa-facebook text-primary icon"></i></li>
+            <li (click)="loginWithTwitter()" style="cursor:pointer"><i class="fa-brands fa-square-twitter text-info icon"></i></li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center mt-4 mt-md-0">
+        <img class="img-fluid rounded-img" src="assets/images/Image.png" alt="Image">
+      </div>
+
+    </div>
+  </div>
+</section>

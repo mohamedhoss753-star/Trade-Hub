@@ -1,0 +1,71 @@
+<section class="login bg-white min-vh-100 d-flex align-items-center">
+  <div class="container w-100">
+    <div class="row justify-content-around align-items-center gx-5 position-relative">
+
+      <div class="col-md-6 mt-4 mt-md-0">
+        <div class="header-content position-relative">
+          <img class="img-fluid mb-3" src="assets/images/language.png" alt="language">
+          <img class="img-fluid d-block mt-4" src="assets/images/Frame 1.png" alt="logo">
+
+          <h1 class="fw-bold text-black">Check your Mail</h1>
+
+          <div class="step-content w-25">
+            <p>Step 2 of 3 <br>
+              <span class="text-center">Forgot Password</span>
+            </p>
+          </div>
+
+          <p class="text-secondary mb-4">
+            We’ve sent a 6-digit confirmation code to <br>
+            <b class="user fw-600">{{ email }}</b>
+          </p>
+
+          <form #otpForm="ngForm">
+            <div class="d-flex justify-content-start gap-2 mb-4 otp-group">
+              <input type="text" maxlength="1" class="form-control check otp-input text-center" [(ngModel)]="otp[0]"
+                name="digit0" />
+
+              <input type="text" maxlength="1" class="form-control check otp-input text-center" [(ngModel)]="otp[1]"
+                name="digit1" />
+
+              <input type="text" maxlength="1" class="form-control check otp-input text-center" [(ngModel)]="otp[2]"
+                name="digit2" />
+
+              <input type="text" maxlength="1" class="form-control check otp-input text-center" [(ngModel)]="otp[3]"
+                name="digit3" />
+
+              <input type="text" maxlength="1" class="form-control check otp-input text-center" [(ngModel)]="otp[4]"
+                name="digit4" />
+
+
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center gap-2 py-4">
+              <button type="button" class="btn btn-outline-dark custom-btn" (click)="goBack()">Back</button>
+              <button type="button" class="btn custom-btn btn-next" (click)="goNext()">
+                Next
+              </button>
+            </div>
+
+            <div class="text-center mt-4">
+              <p class="text-muted">
+                Didn’t recieve any email? Check spam or <br>
+                <a class="text-success fw-semibold text-decoration-none ms-1" style="cursor: pointer;"
+                  (click)="tryAnotherEmail()">
+                  <b class="user">Try another email address</b>
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center mt-4 mt-md-0">
+        <div class="box-hero position-relative">
+          <div class="layer2"></div>
+          <img src="assets/images/Cybersecurity with password protection.png" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
